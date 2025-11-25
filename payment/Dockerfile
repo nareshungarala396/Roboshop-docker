@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.9
 WORKDIR /opt/server
 COPY payment.ini .
 COPY *.py .
@@ -9,6 +9,6 @@ ENV CART_HOST="cart" \
     USER_HOST="user" \
     USER_PORT="8080" \
     AMQP_HOST="rabbitmq" \
-    AMQP_USER=roboshop \
-    AMQP_PASS=roboshop123
+    AMQP_USER="roboshop" \
+    AMQP_PASS="roboshop123"
 CMD ["uwsgi","--ini","payment.ini"]
